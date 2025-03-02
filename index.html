@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevBoard</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- font awesome kit -->
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <style>
+        .font-poppins {
+            font-family: "Poppins", sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-[#F4F7FF] font-poppins">
+
+    <!-- Header Section -->
+    <header class="py-6 container mx-auto">
+        <nav class="flex justify-between items-center p-5 bg-white rounded-xl">
+            <div>
+                <img src="asssets/logo.png" alt="Logo" class="w-9/12">
+            </div>
+            <div class="flex justify-end items-center gap-4">
+                <div class="flex item-center gap-3 text-[#F4F7FF] bg-[#F4F7FF] p-3 rounded-full items-center">
+                    <img src="asssets/check.png" alt="Check Icon" class="w-[25px] h-[25px]"/>
+                    <span id="mark" class="text-black text-2xl font-bold ">23</span>
+                </div>
+                <button onclick="changeBackgroundColor()" class="bg-[#F4F7FF] p-2 rounded-full cursor-pointer"><img src="asssets/color.png" alt="Color Icon" /></button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <section>
+        <main class="container mx-auto flex gap-4">
+
+            <!-- Task Section -->
+            <div class="bg-white p-10 rounded-xl w-[80%]">
+                <div class="flex justify-between items-center">
+                    <!-- Task Assigned -->
+                    <div class="rounded-xl bg-[#F4F7FF] p-10 flex items-center gap-3">
+                        <div class="rounded-3xl bg-white w-[50px]">
+                            <img src="asssets/check.png" alt="Check Icon" class=" p-3 ">
+                        </div>
+                        <div>
+                            <h2 class="text-base">Task Assigned</h2>
+                            <h1 id="taskAssigned" class="text-black text-3xl font-bold">6</h1>
+                        </div>
+                    </div>
+
+                    <!-- Discover Section -->
+                    <div id="question" class="rounded-xl bg-gradient-to-br from-[#3752fd] via-[#6c7ffa] to-[#9ba8f8] p-10 flex items-center gap-3 cursor-pointer" onclick="redirectToPage()">
+                        <div>
+                            <img src="asssets/date.png" alt="Date Icon"/>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl text-white">Discover Something <br>New Today!</h2>
+                        </div>
+                    </div>
+
+                    <!-- Date Section -->
+                    <div class="rounded-xl bg-[#F4F7FF] p-10 flex items-center gap-3">
+                        <div class="rounded-3xl bg-white w-[50px]">
+                            <img src="asssets/calender.png" alt="Calendar Icon" class=" p-3 ">
+                        </div>
+                        <div>
+                            <h2 id="todayName" class="text-base">Wed,</h2>
+                            <h1 id="differentSection" class="text-black text-xl font-bold"></h1>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Task Grid Section -->
+                <div class="grid grid-cols-3 gap-10 my-14">
+                    <!-- Task 1 -->
+                    <div class="task bg-[#F4F7FF] p-5 flex flex-col items-start justify-between gap-5 rounded-lg">
+                        <button class="bg-slate-200 px-3 py-1 rounded-lg text-base font-poppins cursor-pointer">ShopEase</button>
+                        <h1 class="task-title text-2xl font-medium">Fix Mobile Button Issue</h1>
+                        <p class="text-base bg-white p-2 rounded-lg h-[60px] overflow-hidden">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly.</p>
+                        <div class="flex items-center justify-between w-full">
+                            <div>
+                                <h2 class="text-sm font-poppins">Deadline</h2>
+                                <h2 class="text-base font-poppins font-medium">21 March 2025</h2>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary task-completed">Completed</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Task 2 -->
+                    <div class="task bg-[#F4F7FF] p-5 flex flex-col items-start justify-between gap-5 rounded-lg">
+                        <button class="bg-slate-200 px-3 py-1 rounded-lg text-base font-poppins cursor-pointer">CloudSync</button>
+                        <h1 class="task-title text-2xl font-medium">Add Dark Mode</h1>
+                        <p class="text-base bg-white p-2 rounded-lg h-[60px] overflow-hidden">Store the user's preference in localStorage, update CSS variables dynamically, and apply a smooth transition effect.</p>
+                        <div class="flex items-center justify-between w-full">
+                            <div>
+                                <h2 class="text-sm font-poppins">Deadline</h2>
+                                <h2 class="text-base font-poppins font-medium">21 March 2025</h2>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary task-completed">Completed</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Task 3 -->
+                    <div class="task bg-[#F4F7FF] p-5 flex flex-col items-start justify-between gap-5 rounded-lg">
+                        <button class="bg-slate-200 px-3 py-1 rounded-lg text-base font-poppins cursor-pointer">SwiftPay</button>
+                        <h1 class="task-title text-2xl font-medium">Optimize Home Page</h1>
+                        <p class="text-base bg-white p-2 rounded-lg h-[60px] overflow-hidden">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly.</p>
+                        <div class="flex items-center justify-between w-full">
+                            <div>
+                                <h2 class="text-sm font-poppins">Deadline</h2>
+                                <h2 class="text-base font-poppins font-medium">21 March 2025</h2>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary task-completed">Completed</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Task 4 -->
+                    <div class="task bg-[#F4F7FF] p-5 flex flex-col items-start justify-between gap-5 rounded-lg">
+                        <button class="bg-slate-200 px-3 py-1 rounded-lg text-base font-poppins cursor-pointer">Meta</button>
+                        <h1 class="task-title text-2xl font-medium">Add new emoji 🤲</h1>
+                        <p class="text-base bg-white p-2 rounded-lg h-[58px] overflow-hidden">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly.</p>
+                        <div class="flex items-center justify-between w-full">
+                            <div>
+                                <h2 class="text-sm font-poppins">Deadline</h2>
+                                <h2 class="text-base font-poppins font-medium">21 March 2025</h2>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary task-completed">Completed</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Task 5 -->
+                    <div class="task bg-[#F4F7FF] p-5 flex flex-col items-start justify-between gap-5 rounded-lg">
+                        <button class="bg-slate-200 px-3 py-1 rounded-lg text-base font-poppins cursor-pointer">Google LLC</button>
+                        <h1 class="task-title text-2xl font-medium">Integrate OpenAI API </h1>
+                        <p class="text-base bg-white p-2 rounded-lg h-[58px] overflow-hidden">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly.</p>
+                        <div class="flex items-center justify-between w-full">
+                            <div>
+                                <h2 class="text-sm font-poppins">Deadline</h2>
+                                <h2 class="text-base font-poppins font-medium">21 March 2025</h2>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary task-completed">Completed</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Task 6 -->
+                    <div class="task bg-[#F4F7FF] p-5 flex flex-col items-start justify-between gap-5 rounded-lg">
+                        <button class="bg-slate-200 px-3 py-1 rounded-lg text-base font-poppins cursor-pointer">Glassdoar</button>
+                        <h1 class="task-title text-2xl font-medium">Improve Job searching </h1>
+                        <p class="text-base bg-white p-2 rounded-lg h-[58px] overflow-hidden">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly.</p>
+                        <div class="flex items-center justify-between w-full">
+                            <div>
+                                <h2 class="text-sm font-poppins">Deadline</h2>
+                                <h2 class="text-base font-poppins font-medium">21 March 2025</h2>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary task-completed">Completed</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- More Tasks can follow... -->
+                </div>
+            </div>
+
+            <!-- Activity Log Section -->
+            <div class="bg-white p-8 rounded-xl w-[20%] text-center flex flex-col items-center gap-3">
+                <h2 class="text-xl">
+                    <img src="asssets/clock-rotate-left-solid.svg" alt="Activity Log Icon" class="w-[20px] inline-block mr-2"> Activity Log
+                </h2>
+                <button id="clearHistory" class="btn btn-primary">Clear History</button>
+
+                <div id="activityLog" class="activity flex flex-col justify-start gap-3 mt-5"></div>
+            </div>
+        </main>
+    </section>
+
+<script src="task.js"></script>
+<script src="question.js"></script>
+
+
+</body>
+</html>
